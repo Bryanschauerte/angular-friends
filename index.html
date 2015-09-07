@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "friendsShare" ng-controller = 'mainCtrl'>
 <head>
   <title>Angular Friends</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -54,10 +54,32 @@
         <div class="num-friends">
           Friends: 1,367
         </div>
+
       </li>
+
+
+      <li class = 'friends' ng-repeat = "friend in friends">
+        <img class="profile-pic" src={{friend["pic_square"]}}>
+
+        <h3>{{friend["name"]}}</h3>
+
+        <div class="location">
+          Location: {{friend["current_location"]["city"]}}, {{friend["current_location"]["state"]}}, {{friend["current_location"]["country"]}}
+        </div>
+
+        <div class="status">
+          Status: {{friend["status"]["message"]}} <span class="hashtag">#{{friend["$$hashKey"]}}</span>
+        </div>
+
+        <div class="num-friends">
+          Friends: {{friend["friend_count"]}}
+        </div>
+      </li>
+
+
+
     </ul>
   </div>
-
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
