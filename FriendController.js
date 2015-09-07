@@ -4,7 +4,6 @@ var app = angular.module('friendsShare');
 
 app.controller('mainCtrl', function($scope){
 
-$scope.hi = 'hello';
 
 $scope.friends = [
   {
@@ -438,7 +437,20 @@ $scope.friends = [
     "$$hashKey": "02U"
   }
 ];
+$scope.sortType = 'name';
 
+$scope.sortOn = [
+  {name:"By Name", value: 'name'},
+  {name: "By Friend Count", value: "friend_count"},
+  {name:"By City", value: "current_location.city"},
+  {name:"By State", value: "current_location.state"},
+  {name: "By Country", value: "current_location.country"}
+];
+//option.value will be the value down here,
+
+$scope.data = [{name:'Ascending', value:false },
+ {name: 'Descending', value: true}];
 
 
 });
+//  ng-model="sortAttr" ng-options="data.name as option.name for option in data">
