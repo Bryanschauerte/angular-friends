@@ -14,12 +14,9 @@
     <form class="form-inline searchForm" role="form">
       <div class="form-group">
 
-        <input class="form-control" placeholder="Search Anything About Your Friends">
-        <!-- STEP 5: Get rid of the one above when you uncomment the below-->
-          <!--
-        <input class="form-control" placeholder="Search Name">
-        <input class="form-control" placeholder="Search Location">
-          -->
+        <input class="form-control" placeholder="Search Name" ng-model = "searchTerm.name">
+        <input class="form-control" placeholder="Search Location" ng-model = "searchTerm.current_location">
+
 
         <select class="input-medium">
           <option>Name</option>
@@ -38,7 +35,7 @@
     </form>
 
     <ul>
-      <li class='friend'>
+      <!-- <li class='friend'>
         <img class="profile-pic" src='http://placebear.com/50/50.jpg'>
 
         <h3>Cali Fornia</h3>
@@ -54,17 +51,17 @@
         <div class="num-friends">
           Friends: 1,367
         </div>
+| filter: searchTerm:strict | orderBy:sortAttr:sort"
+      </li> -->
 
-      </li>
+      <li class = 'friends' ng-repeat = "friend in friends | filter: searchTerm:strict" >
 
-
-      <li class = 'friends' ng-repeat = "friend in friends">
-        <img class="profile-pic" src={{friend["pic_square"]}}>
+        <img class="profile-pic" ng-src= "{{friend.pic_square}}">
 
         <h3>{{friend["name"]}}</h3>
 
         <div class="location">
-          Location: {{friend["current_location"]["city"]}}, {{friend["current_location"]["state"]}}, {{friend["current_location"]["country"]}}
+          Location: {{friend.current_location.city}}, {{friend.current_location.state}}, {{friend.current_location.country}}
         </div>
 
         <div class="status">
